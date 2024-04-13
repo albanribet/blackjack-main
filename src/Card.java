@@ -1,35 +1,48 @@
 /**
  * a class that represents the individual cards
+ * @author Alban
  */
-public class Card{
+public class Card {
 
-    private String value;
-    private String suit;
+    private char rank;
+    private int bValue;
+    private char suit;
     
     /**
      * contructor for the Card class
-     * @param value the value of the card eg. 1, 7, king
+     * @param rank the value of the card eg. 1, 7, king
      * @param suit the suit the card comes from eg. spades, hearts
      */
-    public Card(String value, String suit){
-        this.value = value;
+    public Card(char rank, char suit){
+        this.rank = rank;
         this.suit = suit;
+        
+        if (rank != 't' && rank != 'j' && rank != 'q' && rank != 'k' && rank != 'a') bValue = Character.getNumericValue(rank);
+        else bValue = 10;
     }
 
     /**
-     * Accessor method for the value datafield
-     * @return the value of the card
+     * Accessor method for the rank datafield
+     * @return the rank of the card
      */
-    public String getValue(){
-        return value;
+    public char getRank(){
+        return rank;
     }
 
     /**
      * Accessor method for the suit datafield
      * @return the suit of the card
      */
-    public String getSuit(){
+    public char getSuit(){
         return suit;
+    }
+
+    /**
+     * Accessor method for the bValue datafield
+     * @return the value of the card
+     */
+    public int getValue(){
+        return bValue;
     }
 
     /**
@@ -37,7 +50,7 @@ public class Card{
      * @return the colour of the card
      */
     public String getColour(){
-        if(suit.equals("spade") ||suit.equals("club")) return "black";
+        if(suit == 's' ||suit == 'c') return "black";
         else return "red";
     }
 }
