@@ -3,21 +3,22 @@ import java.util.Arrays;
 public class Shoe{
 
     private static Shoe shoeObj;
+    private static Card[] cards;
     /**
      * public constructor for the Shoe class
      * @param numDecks
      */
     private Shoe(int numDecks){
-        Deck[] shoe = new Deck[numDecks*Deck.getNumCards()];
+        cards = new Card[numDecks*Deck.getInitNumCards()];
         // for (int i = 0; i < numDecks; i++) {
-        //     Deck deck = new Deck();
         //     for (int j = 0; j < Deck.getNumCards(); j++)
-        //     shoe[i*52 + j] = deck.getCards();
-        //     System.out.println(Arrays.toString(shoe));
+        //     Deck deck = new Deck();
+        //     cards[i*52 + j] = deck.getCards();
+        //     System.out.println(Arrays.toString(cards));
         // }
         for (int i = 0; i < numDecks; i++){
             Deck deck = new Deck();
-            System.arraycopy(deck.getCards(), 0, shoe, i*52, Deck.getNumCards()); // fix!!
+            System.arraycopy(deck.getCards(), 0, cards, i*52, Deck.getInitNumCards()); // fix!!
         }
     }
 
@@ -29,5 +30,27 @@ public class Shoe{
     public static Shoe getInstance(int numDecks) {
         if (shoeObj == null) shoeObj = new Shoe(numDecks);
         return shoeObj;
+    }
+
+    /**
+     * toString method for the Card class
+     * @return a visual representation of the array
+     */
+    public String toString(){
+        StringBuilder toString = new StringBuilder();
+        toString.append("{");
+        for (int i = 0; i < cards.length; i++) {
+            toString.append(String.valueOf(cards[i].getRank()) + cards[i].getSuit() + ((i+1 < cards.length) ? ", " :  ""));
+        }
+        toString.append("}");
+        return toString.toString();
+    }
+
+    /**
+     * accessor method for the cards array
+     * @return the cards array
+     */
+    public static Card[] getCards(){
+        return cards;
     }
 }

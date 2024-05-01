@@ -2,20 +2,21 @@
  * class that represents a deck of cards
  * @author Alban
  */
-public class Deck {
+public class Deck{
     private Card[] cards;
-    private static int numCards;
+    private static int initNumCards = 52;
+    private static int currNumCards;
 
     /**
      * pblic constructor for Deck
      */
     public Deck(){
-        this.numCards = 52;
-        cards = new Card[numCards];
+        currNumCards = initNumCards;
+        cards = new Card[initNumCards];
         char[] ranks = new char[]{'a', '2', '3', '4', '5', '6', '7',
                                         '8', '9', 't', 'j', 'q', 'k'};
         int suits = 0;
-        for(int i = 0; i < numCards; i+=4){
+        for(int i = 0; i < initNumCards; i+=4){
             cards[i] = new Card(ranks[suits], 's');
             cards[i+1] = new Card(ranks[suits], 'c');
             cards[i+2] = new Card(ranks[suits], 'h');
@@ -32,11 +33,11 @@ public class Deck {
     }
 
     /**
-     * accessor method for the numCards datafield
-     * @return the number of cards in the deck
+     * accessor method for the initNumCards datafield
+     * @return the initial number of cards in the deck
      */
-    public static int getNumCards(){
-        return numCards;
+    public static int getInitNumCards(){
+        return initNumCards;
     }
 
     /**

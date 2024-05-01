@@ -4,13 +4,14 @@ public class BlackJack{
      * static singleton of the BlackJack class
      */
     private static BlackJack blackjackObj;
+    private static Shoe shoe;
     
     /**
      * private constructor for the BlackJack class
      * @param numDecks the number of decks to be used in the game
      */
     private BlackJack(int numDecks) {
-        Shoe shoe = Shoe.getInstance(numDecks);
+        shoe = Shoe.getInstance(numDecks);
     }
 
     /**
@@ -23,4 +24,11 @@ public class BlackJack{
         return blackjackObj;
     }	
 
+    /**
+     * accessor method for the shoe datafield
+     * @return the shoe object
+     */
+    public static Shoe getShoe(){
+        return shoe;
+    }
 }

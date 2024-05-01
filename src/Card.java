@@ -2,7 +2,7 @@
  * a class that represents the individual cards
  * @author Alban
  */
-public class Card {
+public class Card{
 
     private char rank;
     private int bValue;
@@ -52,5 +52,13 @@ public class Card {
     public String getColour(){
         if(suit == 's' ||suit == 'c') return "black";
         else return "red";
+    }
+
+    /**
+     * toString method for the Card class
+     * @return a visual representation of the card
+     */
+    public String toString(){
+        return rank + "" + suit;
     }
 }

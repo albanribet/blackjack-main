@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 /**
  * main application for the project
@@ -23,7 +24,8 @@ public class App {
                 System.out.println("Please enter a valid number of decks");
             }
         }
-        BlackJack bj = BlackJack.getInstance(numDecks);
+        BlackJack.getInstance(numDecks);
+        System.out.println(BlackJack.getShoe());
         // Deck d = new Deck();
         // System.out.println(d.getCards()[10].getRank() + " " + d.getCards()[10].getSuit());
         // System.out.println(d.getCards()[10].getValue());
