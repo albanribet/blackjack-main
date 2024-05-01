@@ -4,7 +4,7 @@
  */
 public class Deck {
     private Card[] cards;
-    private int numCards;
+    private static int numCards;
 
     /**
      * pblic constructor for Deck
@@ -29,6 +29,14 @@ public class Deck {
      */
     public Card[] getCards(){
         return cards;
+    }
+
+    /**
+     * accessor method for the numCards datafield
+     * @return the number of cards in the deck
+     */
+    public static int getNumCards(){
+        return numCards;
     }
 
     /**
