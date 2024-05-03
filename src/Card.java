@@ -7,6 +7,8 @@ public class Card{
     private char rank;
     private int bValue;
     private char suit;
+    private String rankString;
+    private String suitString;
     
     /**
      * contructor for the Card class
@@ -16,9 +18,20 @@ public class Card{
     public Card(char rank, char suit){
         this.rank = rank;
         this.suit = suit;
+        if (suit == 's') suitString = "spades";
+        else if (suit == 'c') suitString = "clubs";
+        else if (suit == 'h') suitString = "hearts";
+        else suitString = "diamonds";
+        if (rank == 'a') rankString = "ace";
+        else if (rank == 't') rankString = "ten";
+        else if (rank == 'j') rankString = "jack";
+        else if (rank == 'q') rankString = "queen";
+        else if (rank == 'k') rankString = "king";
+        else rankString = Character.toString(rank);
         
-        if (rank != 't' && rank != 'j' && rank != 'q' && rank != 'k' && rank != 'a') bValue = Character.getNumericValue(rank);
-        else bValue = 10;
+        if (rank == 'a') bValue = 11;// make sure it can be one!!!
+        else if (rank == 't' || rank == 'j' || rank == 'q' || rank == 'k') bValue = bValue = 10;
+        else bValue = Character.getNumericValue(rank);
     }
 
     /**
@@ -30,11 +43,27 @@ public class Card{
     }
 
     /**
+     * Accessor method for the rankString datafield
+     * @return the rank of the card as a string
+     */
+    public String getRankString(){
+        return rankString;
+    }
+
+    /**
      * Accessor method for the suit datafield
      * @return the suit of the card
      */
     public char getSuit(){
         return suit;
+    }
+
+    /**
+     * Accessor method for the suitString datafield
+     * @return the suit of the card as a string
+     */
+    public String getSuitString(){
+        return suitString;
     }
 
     /**
