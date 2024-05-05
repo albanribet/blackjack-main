@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Shoe{
 
     private static Shoe shoeObj;
-    private static Card[] cards;
+    private static Card[] cards; //Should I make this an ArrayList
     /**
      * public constructor for the Shoe class
      * @param numDecks
