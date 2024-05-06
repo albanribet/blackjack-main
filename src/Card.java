@@ -30,7 +30,7 @@ public class Card{
         else rankString = Character.toString(rank);
         
         if (rank == 'a') bValue = 11;// make sure it can be one!!!
-        else if (rank == 't' || rank == 'j' || rank == 'q' || rank == 'k') bValue = bValue = 10;
+        else if (rank == 't' || rank == 'j' || rank == 'q' || rank == 'k') bValue = 10;
         else bValue = Character.getNumericValue(rank);
     }
 

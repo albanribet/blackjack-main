@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Shoe{
 
     private static Shoe shoeObj;
@@ -21,6 +19,7 @@ public class Shoe{
             System.arraycopy(deck.getCards(), 0, cards, i*52, Deck.getInitNumCards()); // fix!!
         }
     }
+    
 
     /**
      * method to get the singleton of the Shoe class

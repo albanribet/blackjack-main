@@ -46,7 +46,7 @@ public class BlackJack{
     public static Card drawCard(){
         //randomise the card drawn!!!
         Random rand = new Random();
-        return shoe.getCards()[rand.nextInt(shoe.getCards().length)];
+        return Shoe.getCards()[rand.nextInt(Shoe.getCards().length)];
     }
 
     /**
@@ -93,6 +93,7 @@ public class BlackJack{
     /**
      * method to simulate the player's turn
      */
+    @SuppressWarnings("resource")
     private static void playerTurn(){
         while(true){
             try { Thread.sleep(800); } catch (InterruptedException e) { e.printStackTrace(); }
